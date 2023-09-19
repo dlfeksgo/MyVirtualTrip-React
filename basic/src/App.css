@@ -1,0 +1,45 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+li,
+ol {
+	list-style: none;
+}
+
+input {
+	/* outline: none; */
+	border: 1px solid #e8e8e8;
+	border-radius: 4px;
+	padding: 8px;
+}
+
+button {
+	height: 32px;
+	padding: 8px;
+	border: none;
+	border-radius: 4px;
+	/* background: #ecfff1;
+	color: #1a8146; */
+}
+
+select {
+	height: 32px;
+	padding: 8px;
+	border: 1px solid #eee;
+	border-radius: 4px;
+}
+
+span {
+	padding-left: 8px;
+}
+
+.App {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 40px;
+}
