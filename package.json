@@ -21,7 +21,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
-	"homepage": "https://dlfeksgo.github.id/MyVirtualTrip-React/basic",
+	"homepage": "https://dlfeksgo.github.id/MyVirtualTrip-React",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
