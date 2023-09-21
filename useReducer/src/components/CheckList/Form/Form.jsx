@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Select from "./Select";
 import styles from "./Form.module.css";
 import { useInput } from "../../../hooks/useInput";
+import MyButton from "../../MyButton/MyButton";
 
 const Form = ({ sectionList, dispatch }) => {
   const [content, handler, setContent] = useInput("");
@@ -26,7 +27,7 @@ const Form = ({ sectionList, dispatch }) => {
     <form className={styles.container} onSubmit={handleSumbit}>
       <Select data={sectionList} value={option} onChangeOption={setOption} />
       <input type="text" value={content} onChange={handler} />
-      <button>추가하기</button>
+      <MyButton type={"add"} text={"추가하기"} />
     </form>
   );
 };

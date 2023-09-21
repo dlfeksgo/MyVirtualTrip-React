@@ -14,7 +14,7 @@ const Section = ({ section, dispatch }) => {
     setActive(!active);
   };
   return (
-    <section>
+    <section className={styles.container}>
       <div className={styles.title}>
         <h3>{section.title}</h3>
         <button className={styles.title__btn} onClick={handleActive}>

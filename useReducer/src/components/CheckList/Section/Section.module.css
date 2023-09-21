@@ -1,35 +1,39 @@
+.container {
+  margin-bottom: 16px;
+}
+
 .title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 16px;
-	padding: 16px;
-	background: #f6f6f6;
-	color: #555555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #f6f6f6;
+  color: #555555;
 }
 
 .title__btn {
-	background: transparent;
-	width: 36px;
-	height: 36px;
-	border-radius: 100%;
-	font-size: 24px;
-	color: #555555;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 0.2s ease-out;
-	cursor: pointer;
+  background: transparent;
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  font-size: 24px;
+  color: #555555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
 }
 
 .title__btn:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .active {
-	display: block;
+  display: block;
 }
 
 .disabled {
-	display: none;
+  display: none;
 }

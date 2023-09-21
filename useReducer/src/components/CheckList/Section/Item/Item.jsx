@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useInput } from "../../../../hooks/useInput";
-import styles from "./Item.module.css";
 import MyButton from "../../../MyButton/MyButton";
+import styles from "./Item.module.css";
+import classnames from "classnames/bind";
+
+const cm = classnames.bind(styles);
 
 const Item = ({ section, item, dispatch }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -31,11 +34,11 @@ const Item = ({ section, item, dispatch }) => {
   };
 
   return (
-    <div>
+    <div className={cm("container")}>
       {isEdit ? (
         <input type="text" value={value} onChange={handler}></input>
       ) : (
-        <label>
+        <label className={cm("label")}>
           {section.type === "check" && (
             <input
               type="checkbox"
@@ -43,7 +46,9 @@ const Item = ({ section, item, dispatch }) => {
               onChange={handleCheck}
             />
           )}
-          <span>{item.content}</span>
+          <span className={cm(`${item.status && "complete"}`)}>
+            {item.content}
+          </span>
         </label>
       )}
       {isEdit ? (
@@ -51,7 +56,7 @@ const Item = ({ section, item, dispatch }) => {
           <button onClick={handleUpdate}>수정완료</button>
         </div>
       ) : (
-        <div>
+        <div className={cm("btn")}>
           <MyButton text={"수정"} onClick={() => setIsEdit(true)} />
           <MyButton type={"delete"} text={"삭제"} onClick={handleDelete} />
         </div>
