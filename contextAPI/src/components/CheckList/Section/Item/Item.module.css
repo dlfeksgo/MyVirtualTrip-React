@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  gap: 4px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #a3a3a3;
+}

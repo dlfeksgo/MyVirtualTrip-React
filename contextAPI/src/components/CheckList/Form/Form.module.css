@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.container input {
+  flex: 1;
+}
