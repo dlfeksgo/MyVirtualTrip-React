@@ -1,0 +1,8 @@
+.btn.default {
+  background: #eeeeee;
+}
+
+.btn.delete {
+  background: #ffdcdc;
+  color: rgb(255, 77, 77);
+}

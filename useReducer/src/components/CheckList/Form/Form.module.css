@@ -1,6 +1,4 @@
 .container {
-  align-items: flex-end;
-  margin-top: 16px;
   display: flex;
   justify-content: space-between;
   gap: 4px;
