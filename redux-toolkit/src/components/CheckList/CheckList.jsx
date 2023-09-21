@@ -4,6 +4,7 @@ import Section from "./Section/Section";
 import styles from "./CheckList.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
+import sectionSlice from "../../reducers/sectionSlice";
 
 const CheckList = () => {
   console.log("CheckList");
@@ -26,7 +27,7 @@ const CheckList = () => {
       return alert("1글자 이상 입력해주세요.");
     }
 
-    dispatch({ type: "section/addSection", inputType, name, title });
+    dispatch(sectionSlice.actions.addSection({ inputType, name, title }));
   };
 
   return (

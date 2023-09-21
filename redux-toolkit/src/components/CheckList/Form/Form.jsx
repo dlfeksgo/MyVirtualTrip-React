@@ -4,6 +4,7 @@ import styles from "./Form.module.css";
 import { useInput } from "../../../hooks/useInput";
 import MyButton from "../../MyButton/MyButton";
 import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../../reducers/sectionSlice";
 
 const Form = () => {
   console.log("Form");
@@ -22,7 +23,7 @@ const Form = () => {
     }
     const sectionId = filteredSection(sectionList, option);
 
-    dispatch({ type: "section/addItem", id: sectionId, content });
+    dispatch(addItem({ id: sectionId, content }));
     setOption(sectionList[0].name);
     setContent("");
   };

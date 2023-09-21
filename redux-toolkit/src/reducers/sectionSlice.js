@@ -16,27 +16,30 @@ const sectionSlice = createSlice({
   initialState: sectionList,
   reducers: {
     addSection: (state, action) => {
+      const { inputType, name, title } = action.payload;
       return [
         ...state,
         {
           id: uuidv4(),
-          type: action.inputType,
-          name: action.name,
-          title: action.title,
+          type: inputType,
+          name: name,
+          title: title,
           itemList: [],
         },
       ];
     },
     addItem: (state, action) => {
+      const { id, content } = action.payload;
+
       return state.map((v) =>
-        v.id === action.id
+        v.id === id
           ? {
               ...v,
               itemList: [
                 ...v.itemList,
                 {
                   id: uuidv4(),
-                  content: action.content,
+                  content: content,
                   status: false,
                 },
               ],
@@ -82,3 +85,5 @@ const sectionSlice = createSlice({
 });
 
 export default sectionSlice;
+
+export const { addItem } = sectionSlice.actions;
