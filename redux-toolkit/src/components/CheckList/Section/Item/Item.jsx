@@ -27,7 +27,7 @@ const Item = ({ section, item }) => {
   const handleCheck = (e) => {
     console.log("handleCheck");
     dispatch({
-      type: "updateItemChecked",
+      type: "section/updateItemChecked",
       sectionId: section.id,
       id: item.id,
       status: e.target.checked,
@@ -36,7 +36,11 @@ const Item = ({ section, item }) => {
 
   const handleDelete = () => {
     console.log("handleDelete");
-    dispatch({ type: "section/delete", sectionId: section.id, id: item.id });
+    dispatch({
+      type: "section/deleteItem",
+      sectionId: section.id,
+      id: item.id,
+    });
   };
 
   return (

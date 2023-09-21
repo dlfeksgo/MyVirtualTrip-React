@@ -17,69 +17,37 @@ const sectionSlice = createSlice({
   reducers: {
     addSection: (state, action) => {
       const { inputType, name, title } = action.payload;
-      return [
-        ...state,
-        {
-          id: uuidv4(),
-          type: inputType,
-          name: name,
-          title: title,
-          itemList: [],
-        },
-      ];
+      state.push({
+        id: uuidv4(),
+        type: inputType,
+        name: name,
+        title: title,
+        itemList: [],
+      });
     },
     addItem: (state, action) => {
       const { id, content } = action.payload;
-
-      return state.map((v) =>
-        v.id === id
-          ? {
-              ...v,
-              itemList: [
-                ...v.itemList,
-                {
-                  id: uuidv4(),
-                  content: content,
-                  status: false,
-                },
-              ],
-            }
-          : v
-      );
+      const section = state.find((v) => v.id === id);
+      section.itemList.push({
+        id: uuidv4(),
+        content: content,
+        status: false,
+      });
     },
     updateItemContent: (state, action) => {
-      return state.map((v) =>
-        v.id === action.sectionId
-          ? {
-              ...v,
-              itemList: v.itemList.map((v) =>
-                v.id === action.id ? { ...v, content: action.value } : v
-              ),
-            }
-          : v
-      );
+      const section = state.find((v) => v.id === action.sectionId);
+      const item = section.itemList.find((v) => v.id === action.id);
+      item.content = action.value;
     },
     updateItemChecked: (state, action) => {
-      return state.map((v) =>
-        v.id === action.sectionId
-          ? {
-              ...v,
-              itemList: v.itemList.map((v) =>
-                v.id === action.id ? { ...v, status: action.status } : v
-              ),
-            }
-          : v
-      );
+      const section = state.find((v) => v.id === action.sectionId);
+      const item = section.itemList.find((v) => v.id === action.id);
+      item.status = action.status;
     },
     deleteItem: (state, action) => {
-      return state.map((v) =>
-        v.id === action.sectionId
-          ? {
-              ...v,
-              itemList: v.itemList.filter((v) => v.id !== action.id),
-            }
-          : v
-      );
+      console.log(action);
+      const section = state.find((v) => v.id === action.sectionId);
+      section.itemList = section.itemList.filter((v) => v.id !== action.id);
     },
   },
 });
