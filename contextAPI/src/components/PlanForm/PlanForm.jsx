@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./PlanForm.module.css";
 import classnames from "classnames/bind";
-import MyButton from "../MyButton/MyButton";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useInput } from "../../hooks/useInput";
+import MyButton from "../UI/MyButton/MyButton";
+import { useNavigate } from "react-router-dom";
 const cm = classnames.bind(styles);
 
 const PlanForm = () => {

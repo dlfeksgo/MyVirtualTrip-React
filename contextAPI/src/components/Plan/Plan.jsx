@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MyButton from "../MyButton/MyButton";
+import MyButton from "../UI/MyButton/MyButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BiEditAlt } from "react-icons/bi";
 import styles from "./Plan.module.css";

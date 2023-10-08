@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Select from "./Select";
 import styles from "./Form.module.css";
 import { useInput } from "../../../hooks/useInput";
-import MyButton from "../../MyButton/MyButton";
+import MyButton from "../../UI/MyButton/MyButton";
 import { useSectionDispatch, useSectionState } from "../../../context/Section";
 
 const Form = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useInput } from "../../../../hooks/useInput";
-import MyButton from "../../../MyButton/MyButton";
+import MyButton from "../../../UI/MyButton/MyButton";
 import styles from "./Item.module.css";
 import classnames from "classnames/bind";
 import { useSectionDispatch } from "../../../../context/Section";
