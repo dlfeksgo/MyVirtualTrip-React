@@ -4,8 +4,6 @@ import styles from "./Section.module.css";
 import Item from "./Item/Item";
 
 const Section = ({ section }) => {
-  console.log("Section");
-
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -15,6 +13,7 @@ const Section = ({ section }) => {
   const handleActive = () => {
     setActive(!active);
   };
+
   return (
     <section className={styles.container}>
       <div className={styles.title}>

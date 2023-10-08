@@ -3,9 +3,9 @@ import Form from "./Form/Form";
 import Section from "./Section/Section";
 import styles from "./CheckList.module.css";
 import { useSectionDispatch, useSectionState } from "../../context/Section";
+import MyButton from "../MyButton/MyButton";
 
 const CheckList = () => {
-  console.log("CheckList");
   const sectionList = useSectionState();
   const dispatch = useSectionDispatch();
 
