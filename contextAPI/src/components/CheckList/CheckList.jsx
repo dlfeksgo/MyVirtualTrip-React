@@ -4,6 +4,7 @@ import Section from "./Section/Section";
 import styles from "./CheckList.module.css";
 import { useSectionDispatch, useSectionState } from "../../context/Section";
 import MyButton from "../MyButton/MyButton";
+import Plan from "../Plan/Plan";
 
 const CheckList = () => {
   const sectionList = useSectionState();
@@ -29,6 +30,7 @@ const CheckList = () => {
 
   return (
     <div className={styles.container}>
+      <Plan />
       <aside className={styles.btn}>
         <button onClick={() => handleCreateSection("text")}>기본형</button>
         <button onClick={() => handleCreateSection("check")}>체크형</button>

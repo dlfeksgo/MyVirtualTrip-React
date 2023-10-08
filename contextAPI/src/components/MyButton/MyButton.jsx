@@ -4,9 +4,13 @@ import classNames from "classnames/bind";
 
 const cn = classNames.bind(styles);
 
-const MyButton = ({ type = "default", text, onClick }) => {
+const MyButton = ({ type = "default", text, onClick, button }) => {
   return (
-    <button className={cn("btn", type)} onClick={onClick}>
+    <button
+      className={cn("btn", type)}
+      onClick={onClick}
+      type={button && "button"}
+    >
       {text}
     </button>
   );
