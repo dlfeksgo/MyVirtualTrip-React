@@ -6,6 +6,7 @@ import {
   useSetRecoilState,
 } from "recoil";
 import { filterState } from "./filter";
+import { v4 as uuid } from "uuid";
 
 export const orderState = atom({
   key: "order",
@@ -49,6 +50,7 @@ export const orderState = atom({
 export const filteredListState = selector({
   key: "filteredList",
   get: ({ get }) => {
+    console.log("filteredListState!");
     const { status } = get(filterState);
     const orders = get(orderState);
     switch (status) {
@@ -68,18 +70,6 @@ export const filteredListState = selector({
   },
 });
 
-const orderIdsState = atom({
-  key: "orderIdsState",
-  default: [],
-});
-
-// export const orderItemState = atomFamily({
-//   key: 'orderItemState',
-//   default: (id)=> {
-
-//   }
-// })
-
 export const orderItem = atomFamily({
   key: "orderItem",
   default: selectorFamily({
@@ -87,46 +77,30 @@ export const orderItem = atomFamily({
     get:
       (id) =>
       ({ get }) => {
+        console.log("orderItem!");
         const items = get(orderState);
-        const item = items.filter((item) => item.id === id);
+        const item = items.find((item) => item.id === id);
         return item;
       },
-    set: ({ set }, newValue) => set(orderState, newValue),
   }),
 });
 
-// export const useOrderAction2 = () => {
-//   const useOrderAction = () => {
-//     console.log("useOrderAction");
-//     const setOrder = useSetRecoilState(orderState);
-//     const update = (id) =>
-//       setOrder((prev) =>
-//         prev.map((v) =>
-//           v.id === id ? { ...v, isCompleted: !v.isCompleted } : v
-//         )
-//       );
-//     return { update };
-//   };
-//   return useOrderAction;
-// };
-
-export const useOrderAction = () => {
-  const setOrder = useSetRecoilState(orderState);
-
+export const useOrderAction = (id) => {
+  console.log("호출");
+  const setOrder = useSetRecoilState(orderItem(id));
   const update = (id) => {
     setOrder((prev) =>
       prev.map((v) => (v.id === id ? { ...v, isCompleted: !v.isCompleted } : v))
     );
   };
-  const create = (item) => setOrder((prev) => [...prev, item]);
-  return { update, create };
+  return { update };
 };
 
-// export const updateStatus = selector({
-//   key: "updateStatus",
-//   get: ({ get }) => get(orderState),
-//   set: ({ set }, id) =>
-//     set(orderState, (prev) =>
-//       prev.map((v) => (v.id === id ? { ...v, isCompleted: !v.isCompleted } : v))
-//     ),
-// });
+export const createOrder = selector({
+  key: "createOrder",
+  get: ({ get }) => get(orderState),
+  set: ({ set }, newData) => {
+    console.log("createOrder");
+    set(orderState, (prev) => [...prev, { id: uuid(), ...newData }]);
+  },
+});

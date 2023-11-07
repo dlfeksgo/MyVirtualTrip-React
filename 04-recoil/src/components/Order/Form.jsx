@@ -1,11 +1,12 @@
 import React, { memo, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { orderState } from "../../atoms/order";
+import { createOrder, orderState } from "../../atoms/order";
 import { v4 as uuid } from "uuid";
 
 const Form = () => {
   console.log("Form Render");
-  const setOrder = useSetRecoilState(orderState);
+  // const setOrder = useSetRecoilState(orderState);
+  const setOrder = useSetRecoilState(createOrder);
   const [text, setText] = useState("");
   const handleChange = (e) => {
     setText(e.target.value);
@@ -13,12 +14,11 @@ const Form = () => {
 
   const handleCreate = () => {
     const newOrder = {
-      id: uuid(),
       name: text,
       isCompleted: false,
     };
-    // dispatch(orderSlice.actions.create(newOrder));
-    setOrder((prev) => [...prev, newOrder]);
+    // setOrder((prev) => [...prev, newOrder]);
+    setOrder(newOrder);
     setText("");
   };
 
